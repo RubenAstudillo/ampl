@@ -16,4 +16,4 @@ $1 ~ /primal/ && $2 ~ /objective/ {
     arr[4] = $NF
 }
 
-END { printf "%f %f %f %f %d\n", arr[1], arr[2], arr[3], arr[4], (arr[4] <= arr[1]) }
+END { printf "%f", ((arr[1] - arr[4]) / arr[1]) * 100 }
