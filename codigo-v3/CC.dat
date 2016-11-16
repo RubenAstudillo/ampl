@@ -1,2 +1,2 @@
-param N:= 250;
+param N:= 350;
 param K:= 50;

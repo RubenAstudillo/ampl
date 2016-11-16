@@ -1,3 +1,5 @@
+
+Z:\home\slack\apuntes\cardinalidades\codigo-v3>ampl CC.run 
 =======================================
 CPLEX 12.6.3.0: timelimit=1000
 timing=2
