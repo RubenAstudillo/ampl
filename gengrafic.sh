@@ -5,7 +5,7 @@ do
     dat=$(gawk -v N=${k} -f ../extract.awk log/res-N${n}-K${k}.txt)
     echo $dat >> datos.dat
   done
-  gnuplot -c ../grafica.plt
+  gnuplot -c ../grafica-N.plt
   mv grafico.png graficos/N${n}.png
   mv datos.dat graficos/datos-${n}.dat
 done
