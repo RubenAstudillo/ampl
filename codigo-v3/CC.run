@@ -1,0 +1,46 @@
+## LOAD SOLVER, MODEL AND PARAMETERS
+option solver cplex;
+option cplex_options 'timelimit=1000 timing=2 mipdisplay=3 mipgap=1E-6 integrality=1E-8 feasibility=1E-9' ;
+#option cplex_options 'writeprob="CC.lp"' ;
+option relax_integrality 1;
+option log_file 'CC.log';
+option randseed 12345;
+model CC.mod ;
+data CC.dat ;
+
+# PROBLEM DEFINITION
+problem P_qp: x, y, obj_qp, y_convexity, xy_order, x_cardinality ;  
+option P_qp.solver cplex;
+option P_qp.cplex_options 'timelimit=1000 timing=2 mipdisplay=3 mipgap=1E-6 integrality=1E-8 feasibility=1E-9' ;
+option P_qp.relax_integrality 1;
+problem P_socp: x, y, z, obj_pr, y_convexity, rot_soc, x2_cardinality ;  
+option P_socp.solver cplex;
+option P_socp.cplex_options 'timelimit=1000 timing=2 mipdisplay=3 mipgap=1E-6 integrality=1E-8 feasibility=1E-9' ;
+option P_socp.relax_integrality 1;
+problem P_dist: u, v, w, obj_dist, v_convexity, rot_soc_dist, u2_cardinality ;  
+option P_dist.solver gurobi;
+option P_dist.gurobi_options 'timelim=1000 logfreq=5 outlev=1 timing=1 mipgap=1E-6' ;
+option P_dist.relax_integrality 0;
+
+#option P_newc.solver ipopt;
+#option P_newc.solver baron;
+#option P_dist.baron_options 'prfreq=1 prtime=5 locres=1 maxiter=100 maxtime=60' ;
+
+option baron_options 'prfreq=1 prtime=5 maxiter=1000'; #maxtime=100' ;
+problem P_newc2: r, s, p, obj_newc2, s_convexity, rot_soc_dist2, r2_cardinality, s_bola;
+#option conopt_options 'workmeg=2500 maxiter=2000';
+option P_newc2.solver loqo;
+
+## SOLUTION
+printf "=======================================\n";
+option P_socp.relax_integrality 0;
+solve P_socp;
+printf "=======================================\n";
+option P_socp.relax_integrality 1;
+solve P_socp;
+printf "=======================================\n";
+solve P_dist;
+#printf "=======================================\n";
+#solve P_newc;
+printf "=======================================\n";
+solve P_newc2;

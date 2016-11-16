@@ -1,0 +1,135 @@
+
+Z:\home\slack\apuntes\cardinalidades\cod1>ampl CC.run 
+=======================================
+CPLEX 12.6.3.0: timelimit=1000
+timing=2
+mipdisplay=3
+mipgap=1E-6
+integrality=1E-8
+feasibility=1E-9
+Reduced MIQCP has 402 rows, 1000 columns, and 1600 nonzeros.
+Reduced MIQCP has 200 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Reduced MIQCP has 200 quadratic constraints.
+Probing time = 0.00 sec. (0.08 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (0.40 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0        0.0000     0                      0.0000        0         
+      0     0        0.0000     0                     Cone: 1        1         
+      0     0        0.0000     0                     Cone: 2        2         
+      0     0        0.0000     0                     Cone: 3        3         
+      0     0        0.0000     0                     Cone: 4        4         
+      0     0        0.0000     0                     Cone: 5        5         
+      0     0        0.0000     0                     Cone: 6        6         
+      0     0        0.1575     0                   Cone: 207      216         
+      0     0        0.1575     0                   Cone: 252      260         
+      0     0        0.1575     0                   Cone: 297      305         
+      0     0        0.1575     0                   Cone: 337      345         
+      0     0        0.1575     0                   Cone: 353      361         
+      0     0        0.1575     0                   Cone: 365      373         
+      0     0        0.1575     0                   Cone: 372      379         
+      0     0        0.1575     0                   Cone: 378      385         
+      0     0        0.1575     0                   Cone: 383      390         
+      0     0        0.1575     0                   Cone: 388      395         
+      0     0        0.1575     0                   Cone: 392      399         
+      0     0        0.1575     0                   Cone: 396      403         
+      0     0        0.1575     0                   Cone: 400      407         
+      0     0        0.1575     0                   Cone: 404      411         
+      0     0        0.1575     0                   Cone: 408      415         
+      0     0        0.1575     0                   Cone: 412      419         
+*     0     0      integral     0        0.1575        0.1575      419    0.00%
+Found incumbent of value 0.157467 after 0.34 sec. (86.93 ticks)
+
+Cone linearizations applied:  308
+
+Root node processing (before b&c):
+  Real time             =    0.34 sec. (86.97 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.34 sec. (86.97 ticks)
+
+Times (seconds):
+Input =  0
+Solve =  0.38
+Output = 0.02
+CPLEX 12.6.3.0: optimal integer solution within mipgap or absmipgap; objective 0.1574670969
+419 MIP simplex iterations
+0 branch-and-bound nodes
+absmipgap = 7.18323e-08, relmipgap = 4.56173e-07
+Tried aggregator 2 times
+No basis.
+=======================================
+CPLEX 12.6.3.0: timelimit=1000
+timing=2
+mipdisplay=3
+mipgap=1E-6
+integrality=1E-8
+feasibility=1E-9
+
+Times (seconds):
+Input =  0
+Solve =  0.19
+Output = 0.04
+CPLEX 12.6.3.0: optimal solution; objective 0.1443384911
+24 barrier iterations
+No basis.
+=======================================
+Gurobi 6.5.2: timelim=1000
+logfreq=5
+outlev=1
+timing=1
+mipgap=1E-6
+Optimize a model with 1 rows, 600 columns and 200 nonzeros
+Model has 201 quadratic constraints
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+00]
+  Objective range [4e-04, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 1e+00]
+Presolve time: 0.01s
+Presolved: 2 rows, 600 columns, 400 nonzeros
+Variable types: 400 continuous, 200 integer (200 binary)
+
+Root relaxation: objective -2.203047e-01, 0 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   -0.00267    0    2          -   -0.00267      -     -    0s
+     0     0   -0.00266    0    2          -   -0.00266      -     -    0s
+     0     0   -0.00258    0    2          -   -0.00258      -     -    0s
+     0     2   -0.00258    0    2          -   -0.00258      -     -    0s
+H   37    18                       0.0007299   -0.00255   450%   3.5    0s
+H   86     0                       0.0007218   -0.00251   448%   3.7    0s
+H  236     0                       0.0007218   -0.00241   433%   3.8    0s
+H 1798   788                       0.0006962    0.00070  0.02%   4.6    0s
+
+Explored 1802 nodes (8510 simplex iterations) in 0.95 seconds
+Thread count was 4 (of 4 available processors)
+
+Optimal solution found (tolerance 1.00e-06)
+Best objective 6.961542801722e-04, best bound 6.961542801722e-04, gap 0.0%
+
+Times (seconds):
+Input =  0
+Solve =  3.29 (summed over threads)
+Output = 0
+Elapsed < 1
+Gurobi 6.5.2: optimal solution; objective 0.0006961542802
+117 barrier iterations
+8510 simplex iterations
+1802 branch-and-cut nodes
+No dual variables returned.
+=======================================
+LOQO 7.03: ignoring integrality of 200 variables
+LOQO 7.03: optimal solution (222 iterations, 232 evaluations)
+primal objective 0.1454987271
+  dual objective 0.145498692
